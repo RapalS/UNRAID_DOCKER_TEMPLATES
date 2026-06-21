@@ -7,7 +7,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/orneryd/NornicDB/issues</Support>
   <Project>https://github.com/orneryd/NornicDB</Project>
-  <Overview>NornicDB is a Neo4j-compatible graph + vector + temporal database and the best long-term memory store for the Hermes agent. This GPU build (NVIDIA CUDA or Vulkan) accelerates embeddings and hybrid search so the Hermes agent gets high-throughput sub-millisecond HNSW vector search, native graph traversal, managed embeddings, reranking + LLM, and policy-based memory decay in one engine. Through Bolt/Cypher and Qdrant-compatible gRPC plus the built-in Heimdall AI assistant, the Hermes agent can persist, auto-link, and recall memory as a self-organizing knowledge graph with MVCC temporal/as-of reads — purpose-built Graph-RAG memory for the Hermes agent at scale.</Overview>
+  <Overview>NornicDB is a Neo4j-compatible graph + vector + temporal database and the best long-term memory store for the Hermes agent. This GPU build (NVIDIA CUDA or Vulkan) accelerates embeddings and hybrid search so the Hermes agent gets high-throughput sub-millisecond HNSW vector search, native graph traversal, managed embeddings, reranking + LLM, and policy-based memory decay in one engine. Through Bolt/Cypher and Qdrant-compatible gRPC plus the built-in Heimdall AI assistant, the Hermes agent can persist, auto-link, and recall memory as a self-organizing knowledge graph with MVCC temporal/as-of reads — purpose-built Graph-RAG memory for the Hermes agent at scale. Connection guide (Hermes / Python / Node.js): https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md</Overview>
   <Description>
 ## NornicDB (GPU)
 
