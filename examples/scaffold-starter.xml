@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>APP_NAME</Name>
+  <Repository>ghcr.io/ORG/IMAGE:tag</Repository>
+  <Registry>https://ghcr.io</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/issues</Support>
+  <Project>https://github.com/UPSTREAM/REPO</Project>
+  <Overview>One-line summary shown in Community Applications and the template picker.</Overview>
+  <Description>
+## APP_NAME
+
+Add install notes, links to upstream docs, and post-install steps here.
+  </Description>
+  <Category>Tools:Utilities</Category>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/APP_NAME.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/UPSTREAM/REPO/main/path/to/icon.png</Icon>
+  <ExtraParams>--restart unless-stopped</ExtraParams>
+  <Config Name="WebUI" Target="8080" Default="8080" Mode="tcp" Description="Primary HTTP port." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="AppData" Target="/config" Default="/mnt/user/appdata/APP_NAME" Mode="rw" Description="Persistent application data." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/APP_NAME</Config>
+</Container>

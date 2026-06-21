@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>nornicdb-cpu</Name>
+  <Repository>timothyswt/nornicdb-cpu-bge:latest</Repository>
+  <Registry>https://hub.docker.com/u/timothyswt</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/orneryd/NornicDB/issues</Support>
+  <Project>https://github.com/orneryd/NornicDB</Project>
+  <Overview>Neo4j-compatible graph + vector database — CPU-only images with BGE-M3 embeddings. No GPU required.</Overview>
+  <Description>
+## NornicDB (CPU)
+
+Graph, vector, and temporal database — Bolt/Cypher compatible with Neo4j drivers. **No GPU required.**
+
+### Image variants
+Pick a **version/branch** when adding the container:
+
+| Branch | When to use |
+|--------|-------------|
+| **cpu-bge** | Default — BGE-M3 bundled (~586 MB). Web UI on port 7474 |
+| **cpu-headless** | API-only, no web UI (~500 MB). Set `NORNICDB_HEADLESS=true` |
+
+### After install
+1. WebUI: port **7474** (cpu-bge only)
+2. Bolt: `bolt://YOUR_UNRAID_IP:7687`
+3. Health: `http://YOUR_UNRAID_IP:7474/health`
+
+**Embeddings:** Do **not** bind-mount an empty folder to `/app/models` — that hides the bundled `bge-m3` model.
+
+### Heimdall AI assistant (optional)
+Enable natural-language chat in the admin UI (Bifrost). Set `NORNICDB_HEIMDALL_ENABLED=true`, then pick a provider:
+- **local** — bundled GGUF model (default on *-heimdall images)
+- **ollama** — set `NORNICDB_HEIMDALL_PROVIDER=ollama` and `NORNICDB_HEIMDALL_API_URL` (e.g. `http://YOUR_OLLAMA_IP:11434`)
+- **openai** — set `NORNICDB_HEIMDALL_PROVIDER=openai` and `NORNICDB_HEIMDALL_API_KEY`
+
+Full guide: https://github.com/orneryd/NornicDB/blob/main/docs/user-guides/heimdall-ai-assistant.md
+
+For NVIDIA or Vulkan GPU on AMD64, use the **nornicdb-gpu** template instead. For Apple Silicon, use **nornicdb-apple-silicon**.
+  </Description>
+  <Category>Tools:Databases</Category>
+  <WebUI>http://[IP]:[PORT:7474]</WebUI>
+  <ReadMe>https://github.com/orneryd/NornicDB/blob/main/docs/getting-started/README.md</ReadMe>
+  <Requires>Docker Hub pull. Recommend 2 GB+ RAM. No GPU.</Requires>
+  <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-cpu.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png</Icon>
+  <ExtraParams>--restart unless-stopped</ExtraParams>
+  <Branch>
+    <Tag>cpu-bge</Tag>
+    <TagDescription>CPU + BGE-M3 embeddings (~586 MB). Recommended default.</TagDescription>
+    <Repository>timothyswt/nornicdb-cpu-bge:latest</Repository>
+    <ExtraParams>--restart unless-stopped</ExtraParams>
+  </Branch>
+  <Branch>
+    <Tag>cpu-headless</Tag>
+    <TagDescription>CPU API-only, no web UI (~500 MB).</TagDescription>
+    <Repository>timothyswt/nornicdb-amd64-cpu-headless:latest</Repository>
+    <ExtraParams>--restart unless-stopped</ExtraParams>
+  </Branch>
+  <Config Name="HTTP Admin UI" Target="7474" Default="7474" Mode="tcp" Description="HTTP API and web admin UI." Type="Port" Display="always" Required="true" Mask="false">7474</Config>
+  <Config Name="Bolt Protocol" Target="7687" Default="7687" Mode="tcp" Description="Bolt protocol for Neo4j-compatible drivers." Type="Port" Display="always" Required="true" Mask="false">7687</Config>
+  <Config Name="Qdrant gRPC" Target="6334" Default="6334" Mode="tcp" Description="Qdrant-compatible gRPC. Enable NORNICDB_QDRANT_GRPC_ENABLED." Type="Port" Display="advanced-hide" Required="false" Mask="false">6334</Config>
+  <Config Name="Database data" Target="/data" Default="/mnt/user/appdata/nornicdb/data" Mode="rw" Description="Persistent graph data (Container path: /data)." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nornicdb/data</Config>
+  <Config Name="Export directory" Target="/data/export" Default="/mnt/user/appdata/nornicdb/export" Mode="rw" Description="Optional import/export staging path." Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nornicdb/export</Config>
+  <Config Name="Data directory env" Target="NORNICDB_DATA_DIR" Default="/data" Mode="" Description="Must match mounted /data path inside container." Type="Variable" Display="advanced-hide" Required="true" Mask="false">/data</Config>
+  <Config Name="HTTP port env" Target="NORNICDB_HTTP_PORT" Default="7474" Mode="" Description="HTTP port inside container." Type="Variable" Display="advanced-hide" Required="false" Mask="false">7474</Config>
+  <Config Name="Bolt port env" Target="NORNICDB_BOLT_PORT" Default="7687" Mode="" Description="Bolt port inside container." Type="Variable" Display="advanced-hide" Required="false" Mask="false">7687</Config>
+  <Config Name="Disable authentication" Target="NORNICDB_NO_AUTH" Default="true|false" Mode="" Description="true = no auth (default). Set false before exposing to untrusted networks." Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="Headless mode" Target="NORNICDB_HEADLESS" Default="false|true" Mode="" Description="Disable web UI. Use with cpu-headless branch." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="Heimdall AI assistant" Target="NORNICDB_HEIMDALL_ENABLED" Default="false|true" Mode="" Description="Enable Bifrost AI chat in admin UI (helmet icon). See upstream Heimdall guide." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="Heimdall provider" Target="NORNICDB_HEIMDALL_PROVIDER" Default="local|ollama|openai" Mode="" Description="local=GGUF in /app/models. ollama=Ollama /api/chat. openai=OpenAI-compatible API." Type="Variable" Display="advanced" Required="false" Mask="false">local</Config>
+  <Config Name="Heimdall API URL" Target="NORNICDB_HEIMDALL_API_URL" Default="" Mode="" Description="Ollama: http://host:11434. OpenAI: https://api.openai.com. Empty = provider default." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Heimdall API key" Target="NORNICDB_HEIMDALL_API_KEY" Default="" Mode="" Description="Required when Heimdall provider=openai." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Heimdall model" Target="NORNICDB_HEIMDALL_MODEL" Default="qwen3-0.6b-instruct" Mode="" Description="GGUF name (no .gguf), Ollama model, or OpenAI model name." Type="Variable" Display="advanced" Required="false" Mask="false">qwen3-0.6b-instruct</Config>
+  <Config Name="Heimdall max tokens" Target="NORNICDB_HEIMDALL_MAX_TOKENS" Default="1024" Mode="" Description="Max tokens per assistant response." Type="Variable" Display="advanced-hide" Required="false" Mask="false">1024</Config>
+  <Config Name="Heimdall temperature" Target="NORNICDB_HEIMDALL_TEMPERATURE" Default="0.5" Mode="" Description="Creativity 0.0-1.0. Default 0.5 for Qwen3." Type="Variable" Display="advanced-hide" Required="false" Mask="false">0.5</Config>
+  <Config Name="Heimdall GPU layers" Target="NORNICDB_HEIMDALL_GPU_LAYERS" Default="-1" Mode="" Description="Local provider only. -1=auto, 0=CPU, 999=all GPU." Type="Variable" Display="advanced-hide" Required="false" Mask="false">-1</Config>
+  <Config Name="Embedding provider" Target="NORNICDB_EMBEDDING_PROVIDER" Default="local|ollama|openai|none" Mode="" Description="Embedding backend. local works with bge images." Type="Variable" Display="advanced" Required="false" Mask="false">local</Config>
+  <Config Name="Qdrant gRPC enabled" Target="NORNICDB_QDRANT_GRPC_ENABLED" Default="false|true" Mode="" Description="Expose Qdrant-compatible gRPC on port 6334." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+</Container>

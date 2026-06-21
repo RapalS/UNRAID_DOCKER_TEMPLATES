@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Selfhosters baseXML — https://selfhosters.net/docker/templating/templating/#1-starting-from-scratch -->
+<Container version="2">
+  <Name></Name>
+  <Repository></Repository>
+  <Registry></Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support></Support>
+  <Project></Project>
+  <Overview></Overview>
+  <WebUI></WebUI>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+</Container>

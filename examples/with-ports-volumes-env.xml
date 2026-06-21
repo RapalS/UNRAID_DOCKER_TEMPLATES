@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>example-full-config</Name>
+  <Repository>lscr.io/linuxserver/heimdall:latest</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/heimdall</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/issues</Support>
+  <Project>https://github.com/linuxserver/docker-heimdall</Project>
+  <Overview>Example demonstrating common Config patterns: ports, appdata path, PUID/PGID, and timezone.</Overview>
+  <Description>
+Reference template showing Variable, Path, and Port Config entries.
+Based on LinuxServer.io Heimdall — use the official CA template for production installs.
+  </Description>
+  <Category>Tools:Utilities</Category>
+  <WebUI>http://[IP]:[PORT:80]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/examples/with-ports-volumes-env.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-icon.png</Icon>
+  <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="HTTP port for the dashboard." Type="Port" Display="always" Required="true" Mask="false">80</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/heimdall" Mode="rw" Description="Container path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/heimdall</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID (Unraid default: 99)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID (Unraid default: 100)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="Timezone, e.g. America/New_York or Europe/London." Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+</Container>

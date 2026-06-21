@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / local agent config (never upload to GitHub)
+.vscode/
+.idea/
+.cursor/
+*.swp
+*.swo
+*~
+
+# Local overrides (never commit secrets)
+.env
+.env.*
+*.local
+
+# Scratch / temp
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Python (validation scripts)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Windows
+*.log

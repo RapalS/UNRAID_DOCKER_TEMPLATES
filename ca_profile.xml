@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<CommunityApplications>
+  <Profile>
+Community-maintained **Unraid Docker templates** for applications not yet listed in the official [Community Applications](https://unraid.net/community/apps) catalog.
+
+### What you will find here
+
+- Installable Docker template XML files under `templates/`
+- Authoring guides, validation scripts, and reference examples
+- Per-app setup notes under `docs/apps/`
+
+### Maintained applications
+
+| Template | Description |
+|----------|-------------|
+| **nornicdb-cpu** | AMD64 CPU-only graph + vector DB (BGE-M3, optional headless) |
+| **nornicdb-gpu** | AMD64 GPU-accelerated (NVIDIA CUDA or Vulkan) |
+| **nornicdb-apple-silicon** | Apple Silicon (M1/M2/M3/M4) with Metal GPU (BGE-M3, optional headless/Heimdall) |
+
+### Support
+
+- **Issues:** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/issues
+- **Docs:** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/tree/main/docs
+
+Optional: add your Unraid forum support thread URL in the `Forum` element below before final submission.
+
+### License
+
+Repository contents (templates, docs, metadata) are licensed under the **MIT License** — an [OSI-approved](https://opensource.org/licenses/MIT) open-source license. Upstream container images remain under their own licenses.
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png</Icon>
+  <WebPage>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES</WebPage>
+  <!-- Optional: uncomment and set your forum support thread before CA submission -->
+  <!-- <Forum>https://forums.unraid.net/topic/YOUR_SUPPORT_TOPIC</Forum> -->
+</CommunityApplications>

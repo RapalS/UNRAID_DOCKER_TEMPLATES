@@ -1,0 +1,60 @@
+name: Validate XML
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - '**.xml'
+      - 'scripts/validate.py'
+      - '.github/workflows/validate-xml.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '**.xml'
+      - 'scripts/validate.py'
+      - '.github/workflows/validate-xml.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate template XML
+        run: python scripts/validate.py --strict templates examples ca_profile.xml
+
+      - name: Check icon references for published templates
+        run: |
+          python << 'PYEOF'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          repo = Path('.')
+          warnings = []
+
+          for xml_path in sorted((repo / 'templates').glob('*.xml')):
+              if xml_path.name.startswith('_'):
+                  continue
+              root = ET.parse(xml_path).getroot()
+              icon_el = root.find('Icon')
+              icon_url = (icon_el.text or '').strip() if icon_el is not None else ''
+              if not icon_url:
+                  warnings.append(f"{xml_path.name}: missing <Icon>")
+              elif not icon_url.startswith('https://'):
+                  warnings.append(f"{xml_path.name}: <Icon> should be an HTTPS URL")
+              elif icon_url.lower().endswith(('.svg', '.webp')):
+                  warnings.append(f"{xml_path.name}: <Icon> must be PNG (SVG/WebP fail in Unraid UI)")
+
+          if warnings:
+              print("Icon check warnings:")
+              for m in warnings:
+                  print(f"  WARN: {m}")
+          else:
+              print("Icon references OK (HTTPS PNG)")
+          PYEOF

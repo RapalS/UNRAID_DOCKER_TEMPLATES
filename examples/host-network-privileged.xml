@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+  ADVANCED EXAMPLE — host networking and privileged mode.
+  Use only when the upstream image documentation explicitly requires it.
+  Document risks in Description and prefer bridge + port mappings when possible.
+-->
+<Container version="2">
+  <Name>example-host-privileged</Name>
+  <Repository>example/placeholder:latest</Repository>
+  <Registry>https://hub.docker.com</Registry>
+  <Network>host</Network>
+  <Privileged>true</Privileged>
+  <Support>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/issues</Support>
+  <Project>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES</Project>
+  <Overview>Advanced example: host network and privileged container. Replace YOUR_IMAGE before use.</Overview>
+  <Description>
+## Warning
+
+**Host network** shares the Unraid host network namespace. **Privileged** grants extended capabilities.
+
+Only use this pattern when:
+- The upstream project requires host networking (e.g. some discovery protocols).
+- Hardware access requires privileged mode or explicit device passthrough.
+
+Prefer `bridge` networking and `Device` Config entries over privileged mode when possible.
+  </Description>
+  <Category>Tools:System</Category>
+  <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/examples/host-network-privileged.xml</TemplateURL>
+  <ExtraParams>--cap-add=NET_ADMIN</ExtraParams>
+  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/example-host-privileged" Mode="rw" Description="Container path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/example-host-privileged</Config>
+  <Config Name="GPU Device (optional)" Target="/dev/dri" Default="/dev/dri" Mode="" Description="Pass through GPU device node when required. Leave the value set (empty Device entries emit --device='' and break container start)." Type="Device" Display="advanced" Required="false" Mask="false">/dev/dri</Config>
+</Container>

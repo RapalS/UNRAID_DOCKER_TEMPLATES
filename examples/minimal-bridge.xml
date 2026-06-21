@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>minimal-bridge</Name>
+  <Repository>alpine:latest</Repository>
+  <Registry>https://hub.docker.com/_/alpine</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/issues</Support>
+  <Project>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES</Project>
+  <Overview>Smallest valid bridge-network template example. Not intended for production use.</Overview>
+  <Description>Reference example only. Runs Alpine with default bridge networking and no exposed ports.</Description>
+  <Category>Tools:Utilities</Category>
+  <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/examples/minimal-bridge.xml</TemplateURL>
+  <PostArgs>sleep infinity</PostArgs>
+</Container>
