@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -12,6 +13,28 @@ REPO = "RapalS/UNRAID_DOCKER_TEMPLATES"
 BRANCH = "main"
 SKIP_PREFIX = "_"
 INDEX_PATH = Path("docs/TEMPLATE_INDEX.md")
+README_PATH = Path("README.md")
+BADGE_START = "<!-- template-count-badge -->"
+BADGE_END = "<!-- /template-count-badge -->"
+
+
+def render_badge_line(count: int) -> str:
+    return (
+        f"[![Templates](https://img.shields.io/badge/Templates-{count}-ff8c2f?style=for-the-badge)]"
+        f"(docs/TEMPLATE_INDEX.md)"
+    )
+
+
+def update_readme_badge(readme_text: str, count: int) -> str:
+    badge_line = render_badge_line(count)
+    block = f"{BADGE_START}\n{badge_line}\n{BADGE_END}"
+    pattern = re.compile(
+        re.escape(BADGE_START) + r".*?" + re.escape(BADGE_END),
+        re.DOTALL,
+    )
+    if not pattern.search(readme_text):
+        raise ValueError(f"README.md missing {BADGE_START} ... {BADGE_END} markers")
+    return pattern.sub(block, readme_text, count=1)
 
 
 def text_of(root: ET.Element, tag: str) -> str:
@@ -120,6 +143,14 @@ def write_index(repo_root: Path, content: str) -> Path:
     return out_path
 
 
+def write_readme_badge(repo_root: Path, count: int) -> Path:
+    readme_path = repo_root / README_PATH
+    readme_text = readme_path.read_text(encoding="utf-8")
+    updated = update_readme_badge(readme_text, count)
+    readme_path.write_text(updated, encoding="utf-8", newline="\n")
+    return readme_path
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate docs/TEMPLATE_INDEX.md from templates/")
     parser.add_argument("--repo-root", default=".", help="Repository root directory")
@@ -136,19 +167,38 @@ def main() -> int:
     out_path = repo_root / INDEX_PATH
 
     if args.check:
+        stale = False
         if not out_path.exists():
             print(f"Missing {INDEX_PATH}. Run: python scripts/generate_template_index.py", file=sys.stderr)
+            stale = True
+        else:
+            existing = out_path.read_text(encoding="utf-8")
+            if existing != content:
+                print(f"{INDEX_PATH} is out of date. Run: python scripts/generate_template_index.py", file=sys.stderr)
+                stale = True
+
+        readme_path = repo_root / README_PATH
+        if not readme_path.exists():
+            print(f"Missing {README_PATH}.", file=sys.stderr)
+            stale = True
+        else:
+            expected_readme = update_readme_badge(readme_path.read_text(encoding="utf-8"), len(entries))
+            if readme_path.read_text(encoding="utf-8") != expected_readme:
+                print(
+                    f"{README_PATH} template badge is out of date. Run: python scripts/generate_template_index.py",
+                    file=sys.stderr,
+                )
+                stale = True
+
+        if stale:
             return 1
-        existing = out_path.read_text(encoding="utf-8")
-        if existing != content:
-            print(f"{INDEX_PATH} is out of date. Run: python scripts/generate_template_index.py", file=sys.stderr)
-            return 1
-        print(f"OK   {INDEX_PATH} is up to date ({len(entries)} template(s))")
+        print(f"OK   {INDEX_PATH} and README badge are up to date ({len(entries)} template(s))")
         return 0
 
     written = write_index(repo_root, content)
+    write_readme_badge(repo_root, len(entries))
     rel = written.relative_to(repo_root)
-    print(f"Wrote {rel} ({len(entries)} template(s))")
+    print(f"Wrote {rel} and updated README badge ({len(entries)} template(s))")
     return 0
 
 

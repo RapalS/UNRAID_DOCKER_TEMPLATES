@@ -7,6 +7,7 @@ on:
     paths:
       - '**.xml'
       - 'docs/TEMPLATE_INDEX.md'
+      - 'README.md'
       - 'scripts/validate.py'
       - 'scripts/generate_template_index.py'
       - '.github/workflows/validate-xml.yml'
@@ -15,6 +16,7 @@ on:
     paths:
       - '**.xml'
       - 'docs/TEMPLATE_INDEX.md'
+      - 'README.md'
       - 'scripts/validate.py'
       - 'scripts/generate_template_index.py'
       - '.github/workflows/validate-xml.yml'

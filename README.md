@@ -1,6 +1,9 @@
 # Unraid Docker Templates
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+<!-- template-count-badge -->
+[![Templates](https://img.shields.io/badge/Templates-3-ff8c2f?style=for-the-badge)](docs/TEMPLATE_INDEX.md)
+<!-- /template-count-badge -->
 [![CI](https://img.shields.io/github/actions/workflow/status/RapalS/UNRAID_DOCKER_TEMPLATES/validate-xml.yml?branch=main&color=ff8c2f&style=for-the-badge&label=XML%20Validate)](https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/actions)
 
 **RapalS**’s personal collection of **Unraid Docker templates** — one GitHub repo for every app you want to install with one click, whether or not it is in the official [Community Applications](https://unraid.net/community/apps) catalog yet.
