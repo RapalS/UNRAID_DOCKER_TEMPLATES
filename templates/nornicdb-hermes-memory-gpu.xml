@@ -30,7 +30,7 @@ Pick a **version/branch** when adding the container:
 1. WebUI: port **7474**
 2. Bolt: `bolt://YOUR_UNRAID_IP:7687`
 3. Health: `http://YOUR_UNRAID_IP:7474/health`
-4. **Connection guide (Hermes / Python / Node.js):** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-unraid-docker-eli5-guide.md
+4. **Connection guide (Hermes / Python / Node.js):** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md
 
 **Embeddings:** Do **not** bind-mount an empty folder to `/app/models` — that hides the bundled `bge-m3` model.
 
@@ -46,7 +46,7 @@ For CPU-only AMD64 hosts, use **nornicdb-hermes-memory-cpu**. For Apple Silicon,
   </Description>
   <Category>Tools:Databases</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
-  <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-unraid-docker-eli5-guide.md</ReadMe>
+  <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md</ReadMe>
   <Requires>Docker Hub pull. CUDA variants need NVIDIA Driver plugin. Recommend 4 GB+ RAM and GPU.</Requires>
   <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-hermes-memory-gpu.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png</Icon>

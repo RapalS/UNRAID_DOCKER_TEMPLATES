@@ -30,7 +30,7 @@ Pick a **version/branch** when adding the container:
 1. WebUI: port **7474** (metal-bge / metal-heimdall)
 2. Bolt: `bolt://YOUR_HOST_IP:7687`
 3. Health: `http://YOUR_HOST_IP:7474/health`
-4. **Connection guide (Hermes / Python / Node.js):** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-unraid-docker-eli5-guide.md
+4. **Connection guide (Hermes / Python / Node.js):** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md
 
 **Embeddings:** Do **not** bind-mount an empty folder to `/app/models` — that hides the bundled `bge-m3` model.
 
@@ -46,7 +46,7 @@ On AMD64 Unraid, use **nornicdb-hermes-memory-cpu** or **nornicdb-hermes-memory-
   </Description>
   <Category>Tools:Databases</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
-  <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-unraid-docker-eli5-guide.md</ReadMe>
+  <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md</ReadMe>
   <Requires>Apple Silicon (ARM64). Docker Hub pull. Recommend 4 GB+ RAM.</Requires>
   <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-hermes-memory-apple-silicon.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png</Icon>
