@@ -25,6 +25,7 @@ Pick a **version/branch** when adding the container:
 1. WebUI: port **7474** (cpu-bge only)
 2. Bolt: `bolt://YOUR_UNRAID_IP:7687`
 3. Health: `http://YOUR_UNRAID_IP:7474/health`
+4. **Connection guide (Hermes / Python / Node.js):** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-unraid-docker-eli5-guide.md
 
 **Embeddings:** Do **not** bind-mount an empty folder to `/app/models` — that hides the bundled `bge-m3` model.
 
@@ -40,7 +41,7 @@ For NVIDIA or Vulkan GPU on AMD64, use **nornicdb-hermes-memory-gpu** instead. F
   </Description>
   <Category>Tools:Databases</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
-  <ReadMe>https://github.com/orneryd/NornicDB/blob/main/docs/getting-started/README.md</ReadMe>
+  <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-unraid-docker-eli5-guide.md</ReadMe>
   <Requires>Docker Hub pull. Recommend 2 GB+ RAM. No GPU.</Requires>
   <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-hermes-memory-cpu.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png</Icon>
