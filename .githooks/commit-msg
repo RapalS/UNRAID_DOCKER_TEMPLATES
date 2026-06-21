@@ -1,0 +1,5 @@
+#!/bin/sh
+# Strip Cursor co-author trailers so commits credit the maintainer only.
+# Enable once: git config core.hooksPath .githooks
+msg_file="$1"
+grep -v '^Co-authored-by: Cursor <cursoragent@cursor.com>$' "$msg_file" > "$msg_file.tmp" && mv "$msg_file.tmp" "$msg_file"

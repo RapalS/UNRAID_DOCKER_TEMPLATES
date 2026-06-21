@@ -75,6 +75,16 @@ Fill out the PR template checklist completely.
 - CI must pass (XML validation workflow)
 - Squash or clean commits welcome but not required
 
+## Git author (maintainers)
+
+Commits should credit **RapalS** only. To block Cursor from appending `Co-authored-by: Cursor` trailers, enable the repo hook once:
+
+```powershell
+git config core.hooksPath .githooks
+```
+
+The hook in `.githooks/commit-msg` strips agent co-author lines before each commit is recorded.
+
 ## Code of conduct
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
