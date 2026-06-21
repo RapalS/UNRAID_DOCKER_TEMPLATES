@@ -20,8 +20,9 @@ BADGE_END = "<!-- /template-count-badge -->"
 
 def render_badge_line(count: int) -> str:
     return (
-        f"[![Templates](https://img.shields.io/badge/Templates-{count}-ff8c2f?style=for-the-badge)]"
-        f"(docs/TEMPLATE_INDEX.md)"
+        f'  <a href="docs/TEMPLATE_INDEX.md">'
+        f'<img src="https://img.shields.io/badge/Templates-{count}-ff8c2f?style=for-the-badge" '
+        f'alt="Templates: {count}" height="28" /></a>'
     )
 
 

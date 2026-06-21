@@ -1,10 +1,12 @@
 # Unraid Docker Templates
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-<!-- template-count-badge -->
-[![Templates](https://img.shields.io/badge/Templates-3-ff8c2f?style=for-the-badge)](docs/TEMPLATE_INDEX.md)
+<p align="left">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License: MIT" height="28" /></a>
+  <!-- template-count-badge -->
+  <a href="docs/TEMPLATE_INDEX.md"><img src="https://img.shields.io/badge/Templates-3-ff8c2f?style=for-the-badge" alt="Templates: 3" height="28" /></a>
 <!-- /template-count-badge -->
-[![CI](https://img.shields.io/github/actions/workflow/status/RapalS/UNRAID_DOCKER_TEMPLATES/validate-xml.yml?branch=main&color=ff8c2f&style=for-the-badge&label=XML%20Validate)](https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/actions)
+  <a href="https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/actions"><img src="https://img.shields.io/github/actions/workflow/status/RapalS/UNRAID_DOCKER_TEMPLATES/validate-xml.yml?branch=main&amp;color=ff8c2f&amp;style=for-the-badge&amp;label=CI" alt="CI" height="28" /></a>
+</p>
 
 **RapalS**’s personal collection of **Unraid Docker templates** — one GitHub repo for every app you want to install with one click, whether or not it is in the official [Community Applications](https://unraid.net/community/apps) catalog yet.
 
