@@ -2,7 +2,7 @@
 # Validate Unraid Docker template XML files (Linux / Unraid SSH).
 #
 # Usage:
-#   ./scripts/validate-template.sh templates/nornicdb-cpu.xml
+#   ./scripts/validate-template.sh templates/nornicdb-hermes-memory-cpu.xml
 #   ./scripts/validate-template.sh --strict
 
 set -euo pipefail

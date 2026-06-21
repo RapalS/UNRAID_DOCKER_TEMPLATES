@@ -4,7 +4,7 @@
     Validate Unraid Docker template XML files (Windows).
 
 .EXAMPLE
-    .\scripts\validate-template.ps1 templates\nornicdb-cpu.xml
+    .\scripts\validate-template.ps1 templates\nornicdb-hermes-memory-cpu.xml
 
 .EXAMPLE
     .\scripts\validate-template.ps1 -Strict

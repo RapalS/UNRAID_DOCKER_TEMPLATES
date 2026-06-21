@@ -6,9 +6,9 @@ Three templates — pick **one** based on your hardware:
 
 | Template | File | Use when |
 |----------|------|----------|
-| **nornicdb-cpu** | `templates/nornicdb-cpu.xml` | AMD64, no GPU |
-| **nornicdb-gpu** | `templates/nornicdb-gpu.xml` | AMD64 NVIDIA CUDA or Vulkan GPU |
-| **nornicdb-apple-silicon** | `templates/nornicdb-apple-silicon.xml` | Apple Silicon (M1/M2/M3/M4) |
+| **nornicdb-hermes-memory-cpu** | `templates/nornicdb-hermes-memory-cpu.xml` | AMD64, no GPU |
+| **nornicdb-hermes-memory-gpu** | `templates/nornicdb-hermes-memory-gpu.xml` | AMD64 NVIDIA CUDA or Vulkan GPU |
+| **nornicdb-hermes-memory-apple-silicon** | `templates/nornicdb-hermes-memory-apple-silicon.xml` | Apple Silicon (M1/M2/M3/M4) |
 
 Ports: **7474** (HTTP/UI), **7687** (Bolt), optional **6334** (Qdrant gRPC).
 
@@ -16,21 +16,21 @@ Ports: **7474** (HTTP/UI), **7687** (Bolt), optional **6334** (Qdrant gRPC).
 
 ---
 
-## nornicdb-cpu
+## nornicdb-hermes-memory-cpu
 
 | Branch | Image | Notes |
 |--------|-------|-------|
 | **cpu-bge** (default) | `timothyswt/nornicdb-cpu-bge:latest` | Web UI + BGE-M3 |
 | **cpu-headless** | `timothyswt/nornicdb-amd64-cpu-headless:latest` | API only, no UI |
 
-1. **Docker** → **Add Container** → **nornicdb-cpu**
+1. **Docker** → **Add Container** → **nornicdb-hermes-memory-cpu**
 2. Branch **cpu-bge** (default)
 3. Appdata: `/mnt/user/appdata/nornicdb/`
 4. **Apply** → WebUI: `http://YOUR_UNRAID_IP:7474`
 
 ---
 
-## nornicdb-gpu
+## nornicdb-hermes-memory-gpu
 
 | Branch | Image | GPU |
 |--------|-------|-----|
@@ -41,19 +41,19 @@ Ports: **7474** (HTTP/UI), **7687** (Bolt), optional **6334** (Qdrant gRPC).
 ### NVIDIA (cuda-bge / cuda-heimdall)
 
 1. Install **NVIDIA Driver** plugin on Unraid
-2. **Add Container** → **nornicdb-gpu** → branch **cuda-bge**
+2. **Add Container** → **nornicdb-hermes-memory-gpu** → branch **cuda-bge**
 3. Template sets `--runtime=nvidia` automatically
 4. For **cuda-heimdall**, set `NORNICDB_HEIMDALL_ENABLED=true`
 
 ### Vulkan (vulkan-bge)
 
-1. **Add Container** → **nornicdb-gpu** → branch **vulkan-bge**
+1. **Add Container** → **nornicdb-hermes-memory-gpu** → branch **vulkan-bge**
 2. In **Extra Parameters**, remove `--runtime=nvidia` and add `--device=/dev/dri`
    (the template default targets CUDA; Unraid does not always carry per-branch parameters across a version switch)
 
 ---
 
-## nornicdb-apple-silicon
+## nornicdb-hermes-memory-apple-silicon
 
 **Apple Silicon only** — M1/M2/M3/M4 Macs with Metal GPU acceleration. Does **not** run on standard AMD64 Unraid servers.
 
@@ -63,7 +63,7 @@ Ports: **7474** (HTTP/UI), **7687** (Bolt), optional **6334** (Qdrant gRPC).
 | **metal-headless** | `timothyswt/nornicdb-arm64-metal-headless:latest` | API only, no UI |
 | **metal-heimdall** | `timothyswt/nornicdb-arm64-metal-bge-heimdall:latest` | Metal + Heimdall AI |
 
-1. **Docker** → **Add Container** → **nornicdb-apple-silicon**
+1. **Docker** → **Add Container** → **nornicdb-hermes-memory-apple-silicon**
 2. Branch **metal-bge** (default)
 3. Appdata: `/mnt/user/appdata/nornicdb/`
 4. **Apply** → WebUI: `http://YOUR_HOST_IP:7474`

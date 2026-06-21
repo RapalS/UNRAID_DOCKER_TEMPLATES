@@ -4,7 +4,7 @@
 # Usage:
 #   export UNRAID_HOST=192.168.1.10
 #   export UNRAID_USER=root
-#   ./scripts/install-to-unraid.sh templates/nornicdb-cpu.xml
+#   ./scripts/install-to-unraid.sh templates/nornicdb-hermes-memory-cpu.xml
 #
 # Optional:
 #   UNRAID_DEST=/boot/config/plugins/dockerMan/templates-user

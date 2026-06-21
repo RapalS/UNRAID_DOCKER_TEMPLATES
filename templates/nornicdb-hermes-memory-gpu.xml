@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>nornicdb-gpu</Name>
+  <Name>nornicdb-hermes-memory-gpu</Name>
   <Repository>timothyswt/nornicdb-amd64-cuda-bge:latest</Repository>
   <Registry>https://hub.docker.com/u/timothyswt</Registry>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
   <Support>https://github.com/orneryd/NornicDB/issues</Support>
   <Project>https://github.com/orneryd/NornicDB</Project>
-  <Overview>Neo4j-compatible graph + vector database — GPU-accelerated images (NVIDIA CUDA or Vulkan).</Overview>
+  <Overview>NornicDB is a Neo4j-compatible graph + vector + temporal database and the best long-term memory store for the Hermes agent. This GPU build (NVIDIA CUDA or Vulkan) accelerates embeddings and hybrid search so the Hermes agent gets high-throughput sub-millisecond HNSW vector search, native graph traversal, managed embeddings, reranking + LLM, and policy-based memory decay in one engine. Through Bolt/Cypher and Qdrant-compatible gRPC plus the built-in Heimdall AI assistant, the Hermes agent can persist, auto-link, and recall memory as a self-organizing knowledge graph with MVCC temporal/as-of reads — purpose-built Graph-RAG memory for the Hermes agent at scale.</Overview>
   <Description>
 ## NornicDB (GPU)
 
@@ -41,13 +41,13 @@ On **cuda-heimdall** branch: set `NORNICDB_HEIMDALL_ENABLED=true` (bundled GGUF 
 
 Open admin UI → helmet icon (Bifrost chat). Guide: https://github.com/orneryd/NornicDB/blob/main/docs/user-guides/heimdall-ai-assistant.md
 
-For CPU-only AMD64 hosts, use the **nornicdb-cpu** template. For Apple Silicon, use **nornicdb-apple-silicon**.
+For CPU-only AMD64 hosts, use **nornicdb-hermes-memory-cpu**. For Apple Silicon, use **nornicdb-hermes-memory-apple-silicon**.
   </Description>
   <Category>Tools:Databases</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
   <ReadMe>https://github.com/orneryd/NornicDB/blob/main/docs/getting-started/README.md</ReadMe>
   <Requires>Docker Hub pull. CUDA variants need NVIDIA Driver plugin. Recommend 4 GB+ RAM and GPU.</Requires>
-  <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-gpu.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-hermes-memory-gpu.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png</Icon>
   <ExtraParams>--runtime=nvidia --restart unless-stopped</ExtraParams>
   <Branch>
@@ -64,7 +64,7 @@ For CPU-only AMD64 hosts, use the **nornicdb-cpu** template. For Apple Silicon, 
   </Branch>
   <Branch>
     <Tag>vulkan-bge</Tag>
-    <TagDescription>Vulkan GPU (AMD/Intel/NVIDIA). Passes /dev/dri automatically.</TagDescription>
+    <TagDescription>Vulkan GPU (AMD/Intel/NVIDIA). Set Extra Parameters to --device=/dev/dri (remove --runtime=nvidia).</TagDescription>
     <Repository>timothyswt/nornicdb-amd64-vulkan-bge:latest</Repository>
     <ExtraParams>--device=/dev/dri --restart unless-stopped</ExtraParams>
   </Branch>

@@ -142,15 +142,15 @@ Complete these **before** clicking Submit at [ca.unraid.net/submit/new](https://
 
 ```powershell
 # Local
-.\scripts\validate-template.ps1 templates\nornicdb-cpu.xml
-.\scripts\validate-template.ps1 templates\nornicdb-gpu.xml
+.\scripts\validate-template.ps1 templates\nornicdb-hermes-memory-cpu.xml
+.\scripts\validate-template.ps1 templates\nornicdb-hermes-memory-gpu.xml
 python scripts/validate.py --strict templates ca_profile.xml
 ```
 
 ```bash
 # On Unraid or Linux
-./scripts/validate-template.sh templates/nornicdb-cpu.xml
-./scripts/validate-template.sh templates/nornicdb-gpu.xml
+./scripts/validate-template.sh templates/nornicdb-hermes-memory-cpu.xml
+./scripts/validate-template.sh templates/nornicdb-hermes-memory-gpu.xml
 python3 scripts/validate.py --strict templates ca_profile.xml
 ```
 

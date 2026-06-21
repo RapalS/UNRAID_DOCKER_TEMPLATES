@@ -37,9 +37,9 @@ Detailed install paths: [docs/01-install-templates.md](docs/01-install-templates
 
 | App | Image | Ports | Status | Notes |
 |-----|-------|-------|--------|-------|
-| [nornicdb-cpu](templates/nornicdb-cpu.xml) | `nornicdb-cpu-bge` / `cpu-headless` | 7474, 7687 | Ready | AMD64, no GPU — [Setup guide](docs/apps/nornicdb.md) |
-| [nornicdb-gpu](templates/nornicdb-gpu.xml) | CUDA / Vulkan BGE branches | 7474, 7687 | Ready | AMD64 NVIDIA/Vulkan — [Setup guide](docs/apps/nornicdb.md) |
-| [nornicdb-apple-silicon](templates/nornicdb-apple-silicon.xml) | `nornicdb-arm64-metal-bge` | 7474, 7687 | Ready | Apple Silicon Metal — [Setup guide](docs/apps/nornicdb.md) |
+| [nornicdb-hermes-memory-cpu](templates/nornicdb-hermes-memory-cpu.xml) | `nornicdb-cpu-bge` / `cpu-headless` | 7474, 7687 | Ready | AMD64, no GPU — [Setup guide](docs/apps/nornicdb.md) |
+| [nornicdb-hermes-memory-gpu](templates/nornicdb-hermes-memory-gpu.xml) | CUDA / Vulkan BGE branches | 7474, 7687 | Ready | AMD64 NVIDIA/Vulkan — [Setup guide](docs/apps/nornicdb.md) |
+| [nornicdb-hermes-memory-apple-silicon](templates/nornicdb-hermes-memory-apple-silicon.xml) | `nornicdb-arm64-metal-bge` | 7474, 7687 | Ready | Apple Silicon Metal — [Setup guide](docs/apps/nornicdb.md) |
 
 _Request or contribute more apps — see [CONTRIBUTING.md](CONTRIBUTING.md)._
 

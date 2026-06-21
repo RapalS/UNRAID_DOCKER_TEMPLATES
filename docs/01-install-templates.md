@@ -8,14 +8,14 @@ Best when you want **one app** quickly without linking a whole GitHub repo.
 
 ### Steps
 
-1. Open the template on GitHub, e.g. [`templates/nornicdb-cpu.xml`](../templates/nornicdb-cpu.xml).
+1. Open the template on GitHub, e.g. [`templates/nornicdb-hermes-memory-cpu.xml`](../templates/nornicdb-hermes-memory-cpu.xml).
 2. Click **Raw** and save the file, or copy the raw URL:
    ```
-   https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-cpu.xml
+   https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-hermes-memory-cpu.xml
    ```
 3. Copy the `.xml` file to your Unraid flash drive:
    ```
-   /boot/config/plugins/dockerMan/templates-user/nornicdb-cpu.xml
+   /boot/config/plugins/dockerMan/templates-user/nornicdb-hermes-memory-cpu.xml
    ```
    Access via SMB share `flash`, SSH, or the Unraid terminal.
 4. In the Unraid web UI: **Docker** → **Add Container**.
@@ -85,7 +85,7 @@ Verify your install path works:
 
 | Field | Default |
 |-------|---------|
-| Template | `nornicdb-cpu`, `nornicdb-gpu`, or `nornicdb-apple-silicon` |
+| Template | `nornicdb-hermes-memory-cpu`, `nornicdb-hermes-memory-gpu`, or `nornicdb-hermes-memory-apple-silicon` |
 | Port | `7474` |
 | WebUI | `http://YOUR_UNRAID_IP:7474` |
 

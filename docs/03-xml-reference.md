@@ -242,9 +242,9 @@ This repo puts install notes in `Overview` first; add `Description` when CA scan
 | [examples/with-ports-volumes-env.xml](../examples/with-ports-volumes-env.xml) | Port, Path, Variable |
 | [examples/host-network-privileged.xml](../examples/host-network-privileged.xml) | Host + privileged (with warnings) |
 | [examples/scaffold-starter.xml](../examples/scaffold-starter.xml) | Scaffold source for new templates |
-| [templates/nornicdb-cpu.xml](../templates/nornicdb-cpu.xml) | AMD64 CPU-only production template |
-| [templates/nornicdb-gpu.xml](../templates/nornicdb-gpu.xml) | AMD64 GPU production template |
-| [templates/nornicdb-apple-silicon.xml](../templates/nornicdb-apple-silicon.xml) | Apple Silicon production template |
+| [templates/nornicdb-hermes-memory-cpu.xml](../templates/nornicdb-hermes-memory-cpu.xml) | AMD64 CPU-only Hermes memory template |
+| [templates/nornicdb-hermes-memory-gpu.xml](../templates/nornicdb-hermes-memory-gpu.xml) | AMD64 GPU Hermes memory template |
+| [templates/nornicdb-hermes-memory-apple-silicon.xml](../templates/nornicdb-hermes-memory-apple-silicon.xml) | Apple Silicon Hermes memory template |
 
 ---
 

@@ -13,9 +13,9 @@ Community-maintained **Unraid Docker templates** for applications not yet listed
 
 | Template | Description |
 |----------|-------------|
-| **nornicdb-cpu** | AMD64 CPU-only graph + vector DB (BGE-M3, optional headless) |
-| **nornicdb-gpu** | AMD64 GPU-accelerated (NVIDIA CUDA or Vulkan) |
-| **nornicdb-apple-silicon** | Apple Silicon (M1/M2/M3/M4) with Metal GPU (BGE-M3, optional headless/Heimdall) |
+| **nornicdb-hermes-memory-cpu** | AMD64 CPU-only Hermes agent memory (BGE-M3, optional headless) |
+| **nornicdb-hermes-memory-gpu** | AMD64 GPU-accelerated Hermes memory (NVIDIA CUDA or Vulkan) |
+| **nornicdb-hermes-memory-apple-silicon** | Apple Silicon (M1/M2/M3/M4) Hermes memory with Metal GPU |
 
 ### Support
 
