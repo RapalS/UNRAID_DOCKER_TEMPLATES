@@ -2,6 +2,8 @@
 
 Thank you for helping improve Unraid Docker templates for the community.
 
+This repository is **RapalS's multi-app template collection** — add as many apps as you need under `templates/`, regenerate the catalog, and push. NornicDB is one app among many, not the repo's sole purpose.
+
 ## Ways to contribute
 
 - Add a new template for an app missing from CA
@@ -60,9 +62,15 @@ See [docs/03-xml-reference.md](docs/03-xml-reference.md).
 
 Follow [docs/05-testing-on-your-server.md](docs/05-testing-on-your-server.md). Record Unraid version and test results in your PR.
 
-### 6. Update README
+### 6. Regenerate template index
 
-Add a row to the **Template index** table in [README.md](README.md).
+```powershell
+python scripts/generate_template_index.py
+```
+
+This updates [docs/TEMPLATE_INDEX.md](docs/TEMPLATE_INDEX.md) from all files in `templates/`. Commit it with your new XML.
+
+Optional: add or update `docs/apps/my-app.md` for complex apps; add a row to [docs/apps/README.md](docs/apps/README.md).
 
 ### 7. Open a pull request
 

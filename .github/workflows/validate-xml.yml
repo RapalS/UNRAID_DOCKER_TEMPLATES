@@ -6,13 +6,17 @@ on:
     branches: [main, master]
     paths:
       - '**.xml'
+      - 'docs/TEMPLATE_INDEX.md'
       - 'scripts/validate.py'
+      - 'scripts/generate_template_index.py'
       - '.github/workflows/validate-xml.yml'
   pull_request:
     branches: [main, master]
     paths:
       - '**.xml'
+      - 'docs/TEMPLATE_INDEX.md'
       - 'scripts/validate.py'
+      - 'scripts/generate_template_index.py'
       - '.github/workflows/validate-xml.yml'
 
 jobs:
@@ -29,6 +33,9 @@ jobs:
 
       - name: Validate template XML
         run: python scripts/validate.py --strict templates examples ca_profile.xml
+
+      - name: Check template index is up to date
+        run: python scripts/generate_template_index.py --check
 
       - name: Check icon references for published templates
         run: |

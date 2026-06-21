@@ -8,14 +8,14 @@ Best when you want **one app** quickly without linking a whole GitHub repo.
 
 ### Steps
 
-1. Open the template on GitHub, e.g. [`templates/nornicdb-hermes-memory-cpu.xml`](../templates/nornicdb-hermes-memory-cpu.xml).
-2. Click **Raw** and save the file, or copy the raw URL:
+1. Pick a template from [TEMPLATE_INDEX.md](TEMPLATE_INDEX.md) (raw URLs listed at the bottom).
+2. Example — open [`templates/my-app.xml`](../templates/) on GitHub, click **Raw**, and copy the URL:
    ```
-   https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-hermes-memory-cpu.xml
+   https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/my-app.xml
    ```
 3. Copy the `.xml` file to your Unraid flash drive:
    ```
-   /boot/config/plugins/dockerMan/templates-user/nornicdb-hermes-memory-cpu.xml
+   /boot/config/plugins/dockerMan/templates-user/my-app.xml
    ```
    Access via SMB share `flash`, SSH, or the Unraid terminal.
 4. In the Unraid web UI: **Docker** → **Add Container**.
@@ -79,19 +79,11 @@ Requirements summary:
 
 ---
 
-## Quick test: nornicdb
+## Quick test
 
-Verify your install path works:
+After install, confirm the template appears under **Add Container**, the image pulls, and the container starts. If the template defines a **WebUI**, click it or browse `http://YOUR_UNRAID_IP:<port>`.
 
-| Field | Default |
-|-------|---------|
-| Template | `nornicdb-hermes-memory-cpu`, `nornicdb-hermes-memory-gpu`, or `nornicdb-hermes-memory-apple-silicon` |
-| Port | `7474` |
-| WebUI | `http://YOUR_UNRAID_IP:7474` |
-
-Health check: `curl http://YOUR_UNRAID_IP:7474/health`
-
-See [docs/apps/nornicdb.md](apps/nornicdb.md) for full setup.
+Example — [NornicDB](apps/nornicdb.md): WebUI on port `7474`, health check `curl http://YOUR_UNRAID_IP:7474/health`.
 
 ---
 

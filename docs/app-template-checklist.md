@@ -126,7 +126,7 @@ Aligned with [Selfhosters templating](https://selfhosters.net/docker/templating/
 
 
 
-- [ ] README template index table updated
+- [ ] `docs/TEMPLATE_INDEX.md` regenerated (`python scripts/generate_template_index.py`)
 
 - [ ] Optional `docs/apps/<app-name>.md` for complex setup
 

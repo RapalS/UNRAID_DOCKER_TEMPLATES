@@ -105,18 +105,24 @@ If you rename the default branch, update all `TemplateURL` and `Icon` values.
 3. Set `<Icon>` to the app's upstream raw PNG URL
 4. Validate: `.\scripts\validate-template.ps1 templates/my-app.xml`
 5. Test on Unraid ([05-testing-on-your-server.md](05-testing-on-your-server.md))
-6. Update README template index table
+6. Regenerate catalog: `python scripts/generate_template_index.py`
 7. Open PR with [checklist](app-template-checklist.md)
+
+You do **not** need to edit `README.md` by hand — [docs/TEMPLATE_INDEX.md](TEMPLATE_INDEX.md) is generated from `templates/`.
 
 ---
 
-## README template index
+## Template catalog (auto-generated)
 
-Add a row to the README **Template index** table:
+After adding or changing templates in `templates/`:
 
-```markdown
-| my-app | `org/image:tag` | 8080 | Ready | [docs](docs/apps/my-app.md) |
+```powershell
+python scripts/generate_template_index.py
+# or
+.\scripts\generate-template-index.ps1
 ```
+
+Commit `docs/TEMPLATE_INDEX.md` with your template XML. CI verifies the index stays in sync.
 
 ---
 

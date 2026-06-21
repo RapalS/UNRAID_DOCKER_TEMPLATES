@@ -116,7 +116,7 @@ Or use [`scripts/install-to-unraid.sh`](../scripts/install-to-unraid.sh) with en
 ```bash
 export UNRAID_HOST=192.168.x.10
 export UNRAID_USER=root
-./scripts/install-to-unraid.sh templates/nornicdb-hermes-memory-cpu.xml
+./scripts/install-to-unraid.sh templates/my-app.xml
 ```
 
 ---
@@ -137,13 +137,9 @@ Copy this table into your PR description when submitting a new template.
 
 ---
 
-## nornicdb smoke test
+## Example smoke test (NornicDB)
 
-| Step | Expected |
-|------|----------|
-| Install `nornicdb-hermes-memory-cpu` template (branch **cpu-bge**) | Ports 7474, 7687 |
-| Open WebUI | `http://YOUR_UNRAID_IP:7474` |
-| Health | `curl http://YOUR_UNRAID_IP:7474/health` returns 200 |
+See [apps/nornicdb.md](apps/nornicdb.md). Quick check: WebUI on port `7474`, `curl http://YOUR_UNRAID_IP:7474/health` returns 200.
 
 ---
 

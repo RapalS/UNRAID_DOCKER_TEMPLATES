@@ -34,12 +34,16 @@ When you pick a template in **Docker → Add Container**, Unraid pre-fills the f
 ## Repository layout (quick map)
 
 ```
-templates/     → Published templates you install from this repo
-examples/        → Learning/reference XML (not primary install path)
-docs/            → Step-by-step guides (start here if new)
-scripts/         → Validation and scaffolding tools
-ca_profile.xml   → CA repository profile (`<CommunityApplications>` / `<Profile>`) — required for [CA submission](https://ca.unraid.net/submit/new)
+templates/              → One XML per app (flat folder; scales to hundreds)
+docs/TEMPLATE_INDEX.md  → Auto-generated catalog of all templates
+docs/apps/              → Optional per-app setup guides
+examples/               → Learning/reference XML (not primary install path)
+docs/                   → Step-by-step guides (start here if new)
+scripts/                → Validation, scaffolding, index generation
+ca_profile.xml          → CA repository profile — one file for the whole repo
 ```
+
+This is a **multi-app template collection**, not a single-product repo. Add `templates/new-app.xml`, run `python scripts/generate_template_index.py`, and push — Unraid users who linked the Docker Repository see the new template after refresh.
 
 ## Recommended reading order
 

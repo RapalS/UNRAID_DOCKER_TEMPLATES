@@ -18,7 +18,7 @@ Copy from [docs/app-template-checklist.md](docs/app-template-checklist.md):
 
 ### Assets
 - [ ] `<Icon>` set to a stable HTTPS PNG URL (the app's upstream raw icon)
-- [ ] README template index updated
+- [ ] `docs/TEMPLATE_INDEX.md` regenerated (`python scripts/generate_template_index.py`)
 
 ### Testing
 - [ ] Tested on Unraid version: __________

@@ -1,22 +1,21 @@
 # Unraid Docker Templates
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![Templates](https://img.shields.io/badge/templates-3+-ff8c2f?style=for-the-badge)](#template-index)
 [![CI](https://img.shields.io/github/actions/workflow/status/RapalS/UNRAID_DOCKER_TEMPLATES/validate-xml.yml?branch=main&color=ff8c2f&style=for-the-badge&label=XML%20Validate)](https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/actions)
 
-Community-maintained **Unraid Docker templates** for applications not yet available in the official [Community Applications](https://unraid.net/community/apps) catalog — plus guides, examples, and validation tooling so anyone can author and share templates.
+**RapalS**’s personal collection of **Unraid Docker templates** — one GitHub repo for every app you want to install with one click, whether or not it is in the official [Community Applications](https://unraid.net/community/apps) catalog yet.
 
 Maintainer: **[RapalS](https://github.com/RapalS)** · Repository: [RapalS/UNRAID_DOCKER_TEMPLATES](https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES)
 
 ---
 
-## Why this exists
+## What this repo is
 
-- New or beta software often ships on Docker Hub/GHCR before appearing in CA
-- Custom or self-built images need one-click install templates for the community
-- Template authoring is poorly documented — this repo collects best practices in one place
+- **`templates/`** — drop a new `.xml` here, push to GitHub, install on Unraid
+- **Docs & validation** — authoring guides, examples, and CI so templates stay CA-compatible
+- **Not single-app** — NornicDB, future homelab apps, and anything else you template all live in the same repo
 
-Inspired by the [Unraid forum guide for non-CA Docker images](https://forums.unraid.net/topic/162164-guide-how-to-install-docker-images-that-are-not-avaliable-on-the-community-applications-page/) and the **[Selfhosters templating guide](https://selfhosters.net/docker/templating/templating/)** (primary authoring reference for this repo).
+Inspired by the [Unraid forum guide for non-CA Docker images](https://forums.unraid.net/topic/162164-guide-how-to-install-docker-images-that-are-not-avaliable-on-the-community-applications-page/) and the **[Selfhosters templating guide](https://selfhosters.net/docker/templating/templating/)**.
 
 ---
 
@@ -27,21 +26,46 @@ Inspired by the [Unraid forum guide for non-CA Docker images](https://forums.unr
    ```
    https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES
    ```
-3. **Save** → **Docker** → **Add Container** → pick a template → **Apply**
+3. **Save** → **Docker** → **Add Container** → pick any template → **Apply**
 
 Detailed install paths: [docs/01-install-templates.md](docs/01-install-templates.md)
 
 ---
 
-## Template index
+## Template catalog
 
-| App | Image | Ports | Status | Notes |
-|-----|-------|-------|--------|-------|
-| [nornicdb-hermes-memory-cpu](templates/nornicdb-hermes-memory-cpu.xml) | `nornicdb-cpu-bge` / `cpu-headless` | 7474, 7687 | Ready | AMD64, no GPU — [Setup guide](docs/apps/nornicdb.md) |
-| [nornicdb-hermes-memory-gpu](templates/nornicdb-hermes-memory-gpu.xml) | CUDA / Vulkan BGE branches | 7474, 7687 | Ready | AMD64 NVIDIA/Vulkan — [Setup guide](docs/apps/nornicdb.md) |
-| [nornicdb-hermes-memory-apple-silicon](templates/nornicdb-hermes-memory-apple-silicon.xml) | `nornicdb-arm64-metal-bge` | 7474, 7687 | Ready | Apple Silicon Metal — [Setup guide](docs/apps/nornicdb.md) |
+The full list is auto-generated from `templates/*.xml`:
 
-_Request or contribute more apps — see [CONTRIBUTING.md](CONTRIBUTING.md)._
+→ **[docs/TEMPLATE_INDEX.md](docs/TEMPLATE_INDEX.md)**
+
+Per-app setup guides (when needed): [docs/apps/](docs/apps/)
+
+---
+
+## Add another template (maintainer workflow)
+
+```powershell
+# 1. Scaffold
+.\scripts\scaffold-template.ps1 -Name "my-app" -Image "ghcr.io/org/app:latest" -Port 8080
+
+# 2. Edit templates/my-app.xml from upstream docs; set <Icon> to upstream PNG URL
+
+# 3. Validate
+.\scripts\validate-template.ps1 templates/my-app.xml
+python scripts/validate.py --strict templates ca_profile.xml
+
+# 4. Refresh catalog
+python scripts/generate_template_index.py
+
+# 5. Push
+git add templates/my-app.xml docs/TEMPLATE_INDEX.md docs/apps/my-app.md
+git commit -m "Add my-app Unraid template"
+git push
+```
+
+No CA resubmission required for each new template — users who added the Docker Repository URL pick up new XML on refresh.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full checklist.
 
 ---
 
@@ -56,7 +80,7 @@ _Request or contribute more apps — see [CONTRIBUTING.md](CONTRIBUTING.md)._
 | [Cleaning XML](docs/04-cleaning-xml.md) | Prepare CA/GitHub-ready templates |
 | [Testing on your server](docs/05-testing-on-your-server.md) | Validate on your Unraid box |
 | [Publishing to GitHub](docs/06-publishing-to-github.md) | Raw URLs, icons, commits |
-| [CA submission](docs/07-community-apps-submission.md) | Official catalog submission |
+| [CA submission](docs/07-community-apps-submission.md) | Optional official catalog listing |
 | [Troubleshooting](docs/08-troubleshooting.md) | DNS, permissions, ports |
 | [App checklist](docs/app-template-checklist.md) | PR checklist per template |
 
@@ -65,64 +89,49 @@ _Request or contribute more apps — see [CONTRIBUTING.md](CONTRIBUTING.md)._
 ## Repository structure
 
 ```
-templates/          Published installable templates
-examples/           Reference XML for learning
-docs/               Authoring and install guides
-scripts/            validate-template, scaffold-template
-ca_profile.xml      CA repository profile (<CommunityApplications> / <Profile>)
+templates/              One XML per app (flat folder — scales to hundreds)
+docs/TEMPLATE_INDEX.md    Auto-generated catalog (run generate_template_index.py)
+docs/apps/                Optional per-app setup guides
+examples/                 Reference XML for learning
+scripts/                  validate, scaffold, generate index
+ca_profile.xml            CA repository profile (one file for the whole repo)
 ```
-
----
-
-## Create a new template
-
-```powershell
-# Windows
-.\scripts\scaffold-template.ps1 -Name "my-app" -Image "ghcr.io/org/app:latest"
-
-# Validate
-.\scripts\validate-template.ps1 templates/my-app.xml
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow.
 
 ---
 
 ## Lab testing
 
-Templates are designed to be tested on a local Unraid server (e.g. `192.168.x.10`). See [docs/05-testing-on-your-server.md](docs/05-testing-on-your-server.md).
+Templates are tested on a local Unraid server (e.g. `192.168.1.10`). See [docs/05-testing-on-your-server.md](docs/05-testing-on-your-server.md).
 
 ---
 
 ## Contributing
 
-Contributions welcome! Read [CONTRIBUTING.md](CONTRIBUTING.md) and follow [docs/app-template-checklist.md](docs/app-template-checklist.md).
+Forks and community PRs welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/app-template-checklist.md](docs/app-template-checklist.md).
 
 ---
 
 ## Credits and references
 
-- **[Selfhosters — Writing a template compatible for Unraid](https://selfhosters.net/docker/templating/templating/)** — primary authoring reference (Squid FAQ)
+- **[Selfhosters — Writing a template compatible for Unraid](https://selfhosters.net/docker/templating/templating/)**
 - [Unraid CA Builder Guide](https://ca.unraid.net/submit/help/builders)
 - [CA Repository XML format](https://ca.unraid.net/submit/help/repository-xml)
 - [CA XML field reference](https://ca.unraid.net/submit/help/xml-field-reference)
-- [Docker template XML schema (forum)](https://forums.unraid.net/topic/38619-docker-template-xml-schema/)
-- [Real Docker FAQ](https://forums.unraid.net/topic/57181-real-docker-faq/)
 
 ---
 
 ## License
 
-MIT — see [LICENSE](LICENSE). This is an [OSI-approved](https://opensource.org/licenses/MIT) license for **repository contents** (templates, docs, icons). Upstream container images are licensed separately by their publishers. See [GitHub — Licensing a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
+MIT — see [LICENSE](LICENSE). Upstream container images are licensed separately by their publishers.
 
 ---
 
-## Community Applications submission
+## Community Applications (optional)
 
-To list this repo in the official Unraid catalog:
+To list the **whole repository** in the official Unraid catalog once (not per template):
 
-1. Customize [`ca_profile.xml`](ca_profile.xml) if needed (`<Profile>` is **required** for CA — see [repository info XML](https://ca.unraid.net/submit/help/repository-info-xml))
+1. Review [`ca_profile.xml`](ca_profile.xml)
 2. Run `python scripts/validate.py --strict templates ca_profile.xml`
-3. Submit at [ca.unraid.net/submit/new](https://ca.unraid.net/submit/new) → **Validate** → **Scan** → **Submit**
+3. Submit at [ca.unraid.net/submit/new](https://ca.unraid.net/submit/new)
 
 Full checklist: [docs/07-community-apps-submission.md](docs/07-community-apps-submission.md)

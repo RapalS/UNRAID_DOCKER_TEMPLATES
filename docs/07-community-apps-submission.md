@@ -136,22 +136,20 @@ Complete these **before** clicking Submit at [ca.unraid.net/submit/new](https://
 - [ ] Run `python scripts/validate.py --strict templates ca_profile.xml` locally — zero errors
 - [ ] Every published template has real `TemplateURL`, `Support`, `Project`, `Category`, `Icon`
 - [ ] Use a stable HTTPS PNG icon URL (the app's upstream raw icon, e.g. `https://raw.githubusercontent.com/<owner>/<repo>/main/icon.png`)
-- [ ] No empty `<Device>` paths, no bind-mounts that break upstream images (see [nornicdb.md](apps/nornicdb.md))
+- [ ] No empty `<Device>` paths or bind-mounts that break upstream images
 
 ### Validation pipeline
 
 ```powershell
-# Local
-.\scripts\validate-template.ps1 templates\nornicdb-hermes-memory-cpu.xml
-.\scripts\validate-template.ps1 templates\nornicdb-hermes-memory-gpu.xml
+python scripts/generate_template_index.py
 python scripts/validate.py --strict templates ca_profile.xml
+python scripts/generate_template_index.py --check
 ```
 
 ```bash
-# On Unraid or Linux
-./scripts/validate-template.sh templates/nornicdb-hermes-memory-cpu.xml
-./scripts/validate-template.sh templates/nornicdb-hermes-memory-gpu.xml
+python3 scripts/generate_template_index.py
 python3 scripts/validate.py --strict templates ca_profile.xml
+python3 scripts/generate_template_index.py --check
 ```
 
 Then in the browser:
