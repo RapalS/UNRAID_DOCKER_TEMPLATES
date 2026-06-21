@@ -8,7 +8,7 @@ Unraid Docker template reference for `<Container version="2">`, aligned with [Se
 
 ### Starting from scratch (base XML)
 
-Selfhosters base template — also shipped as [`examples/base-xml.xml`](../examples/base-xml.xml):
+Selfhosters base template — also shipped as [`docs/examples/base-xml.xml.example`](../examples/base-xml.xml.example):
 
 ```xml
 <?xml version="1.0"?>
@@ -31,7 +31,7 @@ Selfhosters base template — also shipped as [`examples/base-xml.xml`](../examp
 </Container>
 ```
 
-Copy [`examples/scaffold-starter.xml`](../examples/scaffold-starter.xml) for a pre-filled starter with example `<Config>` entries, or use [`examples/base-xml.xml`](../examples/base-xml.xml) for the minimal Selfhosters base.
+Copy [`docs/examples/scaffold-starter.xml.example`](../examples/scaffold-starter.xml.example) for a pre-filled starter with example `<Config>` entries, or use [`docs/examples/base-xml.xml.example`](../examples/base-xml.xml.example) for the minimal Selfhosters base.
 
 ### Fill the base
 
@@ -237,13 +237,12 @@ This repo puts install notes in `Overview` first; add `Description` when CA scan
 
 | File | Demonstrates |
 |------|--------------|
-| [examples/base-xml.xml](../examples/base-xml.xml) | Selfhosters empty base |
-| [examples/minimal-bridge.xml](../examples/minimal-bridge.xml) | Minimal valid template |
-| [examples/with-ports-volumes-env.xml](../examples/with-ports-volumes-env.xml) | Port, Path, Variable |
-| [examples/host-network-privileged.xml](../examples/host-network-privileged.xml) | Host + privileged (with warnings) |
-| [examples/scaffold-starter.xml](../examples/scaffold-starter.xml) | Scaffold source for new templates |
+| [docs/examples/base-xml.xml.example](../examples/base-xml.xml.example) | Selfhosters empty base |
+| [docs/examples/minimal-bridge.xml.example](../examples/minimal-bridge.xml.example) | Minimal valid template |
+| [docs/examples/with-ports-volumes-env.xml.example](../examples/with-ports-volumes-env.xml.example) | Port, Path, Variable |
+| [docs/examples/host-network-privileged.xml.example](../examples/host-network-privileged.xml.example) | Host + privileged (with warnings) |
+| [docs/examples/scaffold-starter.xml.example](../examples/scaffold-starter.xml.example) | Scaffold source for new templates |
 | [templates/](../templates/) | Published templates (see [TEMPLATE_INDEX.md](TEMPLATE_INDEX.md)) |
-| [examples/minimal-bridge.xml](../examples/minimal-bridge.xml) | Minimal bridge network template |
 
 ---
 

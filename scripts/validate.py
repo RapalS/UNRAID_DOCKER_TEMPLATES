@@ -12,7 +12,7 @@ REQUIRED_CONTAINER_TAGS = ("Name", "Repository", "Overview")
 RECOMMENDED_CONTAINER_TAGS = ("Description", "Support", "Project", "TemplateURL", "Category")
 LEGACY_TAGS = ("Networking", "Data", "Environment")
 INTERNAL_TAGS = ("DateInstalled",)
-SKIP_FILES = {"base-xml.xml", "scaffold-starter.xml"}
+SKIP_FILES = {"base-xml.xml", "scaffold-starter.xml", "base-xml.xml.example", "scaffold-starter.xml.example"}
 PLACEHOLDER_REPOS = {
     "ghcr.io/ORG/IMAGE:tag",
     "YOUR_IMAGE:tag",
@@ -171,11 +171,33 @@ def collect_files(paths: list[str], repo_root: Path) -> list[Path]:
             p = repo_root / p
         if p.is_dir():
             files.extend(sorted(p.rglob("*.xml")))
+            files.extend(sorted(p.rglob("*.xml.example")))
         elif p.exists():
             files.append(p)
         else:
             print(f"Warning: path not found: {raw}", file=sys.stderr)
     return files
+
+
+def check_publishable_containers(repo_root: Path) -> list[str]:
+    """Container templates for CA must live only under templates/."""
+    errors: list[str] = []
+    for path in sorted(repo_root.rglob("*.xml")):
+        if path.name == "ca_profile.xml":
+            continue
+        try:
+            root = load_tree(path)
+        except ValueError:
+            continue
+        if root.tag != "Container":
+            continue
+        rel = path.relative_to(repo_root)
+        if rel.parts[0] != "templates":
+            errors.append(
+                f"{rel}: publishable <Container> XML must be in templates/ only "
+                "(move reference files to docs/examples/*.xml.example)"
+            )
+    return errors
 
 
 def main() -> int:
@@ -187,13 +209,20 @@ def main() -> int:
             pass
 
     parser = argparse.ArgumentParser(description="Validate Unraid Docker template XML")
-    parser.add_argument("paths", nargs="*", default=["templates", "examples", "ca_profile.xml"])
+    parser.add_argument("paths", nargs="*", default=["templates", "docs/examples", "ca_profile.xml"])
     parser.add_argument("--strict", action="store_true", help="Strict checks for templates/ publish path")
     parser.add_argument("--repo-root", default=".", help="Repository root directory")
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
     files = collect_files(args.paths, repo_root)
+
+    publish_errors = check_publishable_containers(repo_root)
+    if publish_errors:
+        for msg in publish_errors:
+            print(f"FAIL (publish path): {msg}")
+        print(f"\nPublish path check: {len(publish_errors)} error(s)")
+        return 1
 
     if not files:
         print("No XML files found to validate.", file=sys.stderr)

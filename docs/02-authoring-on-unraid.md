@@ -151,7 +151,7 @@ CA exports duplicate data in legacy blocks. Follow [04-cleaning-xml.md](04-clean
 
 ## Path B — Manual authoring (no CA import)
 
-1. Start from [`examples/scaffold-starter.xml`](../examples/scaffold-starter.xml) or [`examples/base-xml.xml`](../examples/base-xml.xml) (Selfhosters baseXML).
+1. Start from [`docs/examples/scaffold-starter.xml.example`](../examples/scaffold-starter.xml.example) or [`docs/examples/base-xml.xml.example`](../examples/base-xml.xml.example) (Selfhosters baseXML).
 2. Fill root tags — see [03-xml-reference.md — Fill the base](03-xml-reference.md#fill-the-base).
 3. Add `<Config>` entries — see [Add a Config entry](03-xml-reference.md#add-a-config-entry).
 4. Clean and validate.

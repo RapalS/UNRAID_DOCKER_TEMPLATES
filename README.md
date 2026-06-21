@@ -99,7 +99,7 @@ templates/              One XML per app (flat folder — scales to hundreds)
 docs/TEMPLATE_INDEX.md    Auto-generated catalog (run generate_template_index.py)
 docs/apps/                Optional per-app Unraid setup guides
 docs/guides/              End-user connection and usage guides
-examples/                 Reference XML for learning
+docs/examples/            Reference XML (`.xml.example` — excluded from CA catalog)
 scripts/                  validate, scaffold, generate index
 ca_profile.xml            CA repository profile (one file for the whole repo)
 ```

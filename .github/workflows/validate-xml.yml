@@ -34,7 +34,7 @@ jobs:
           python-version: '3.12'
 
       - name: Validate template XML
-        run: python scripts/validate.py --strict templates examples ca_profile.xml
+        run: python scripts/validate.py --strict templates docs/examples ca_profile.xml
 
       - name: Check template index is up to date
         run: python scripts/generate_template_index.py --check

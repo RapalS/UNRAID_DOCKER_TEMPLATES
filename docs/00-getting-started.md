@@ -38,7 +38,7 @@ templates/              → One XML per app (flat folder; scales to hundreds)
 docs/TEMPLATE_INDEX.md  → Auto-generated catalog of all templates
 docs/apps/              → Optional per-app Unraid setup guides
 docs/guides/            → End-user guides (connect clients, Hermes, etc.)
-examples/               → Learning/reference XML (not primary install path)
+docs/examples/          → Reference XML for learning (`.xml.example` — not in CA catalog)
 docs/                   → Template authoring guides (start here if new)
 scripts/                → Validation, scaffolding, index generation
 ca_profile.xml          → CA repository profile — one file for the whole repo

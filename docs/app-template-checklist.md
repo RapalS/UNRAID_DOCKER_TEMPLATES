@@ -42,7 +42,7 @@ Aligned with [Selfhosters templating](https://selfhosters.net/docker/templating/
 
 - [ ] File at `templates/<app-name>.xml` (lowercase, hyphenated)
 
-- [ ] Based on [`examples/scaffold-starter.xml`](../examples/scaffold-starter.xml), [`examples/base-xml.xml`](../examples/base-xml.xml), or cleaned CA export
+- [ ] Based on [`docs/examples/scaffold-starter.xml.example`](docs/examples/scaffold-starter.xml.example), [`docs/examples/base-xml.xml.example`](docs/examples/base-xml.xml.example), or cleaned CA export
 
 - [ ] GitHub URLs use `RapalS` (or your fork username if publishing separately)
 

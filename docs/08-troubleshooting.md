@@ -130,7 +130,7 @@ Do not commit credentials to public XML.
 - **host:** Port mappings ignored; ensure no port conflicts on host
 - **custom:br0:** Requires configured macvlan network; enable host access to custom networks if needed (Settings → Docker)
 
-See [examples/host-network-privileged.xml](../examples/host-network-privileged.xml) warnings.
+See [docs/examples/host-network-privileged.xml.example](../examples/host-network-privileged.xml.example) warnings.
 
 ---
 

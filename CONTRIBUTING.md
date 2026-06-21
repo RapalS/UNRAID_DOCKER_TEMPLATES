@@ -25,7 +25,7 @@ This repository is **RapalS's multi-app template collection** — add as many ap
 .\scripts\scaffold-template.ps1 -Name "my-app" -Image "org/image:tag"
 ```
 
-Or run [`scripts/scaffold-template.ps1`](scripts/scaffold-template.ps1), or copy [`examples/scaffold-starter.xml`](examples/scaffold-starter.xml) to `templates/my-app.xml`.
+Or run [`scripts/scaffold-template.ps1`](scripts/scaffold-template.ps1), or copy [`docs/examples/scaffold-starter.xml.example`](docs/examples/scaffold-starter.xml.example) to `templates/my-app.xml`.
 
 ### 2. Research upstream
 

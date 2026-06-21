@@ -163,6 +163,27 @@ Then in the browser:
 
 ---
 
+## Keep example templates out of the catalog
+
+Community Applications scans **every `*.xml` file** in the repository that contains a valid `<Container>` root — not only `templates/`.
+
+| Do | Don't |
+|----|-------|
+| Put installable apps in `templates/*.xml` only | Leave learning examples as `*.xml` anywhere else |
+| Store reference XML as `docs/examples/*.xml.example` | Keep `examples/minimal-bridge.xml` at repo root |
+| Re-run **Scan** after removing stray templates | Expect old example apps to vanish instantly from CA |
+
+If example apps already appeared in CA (e.g. `minimal-bridge`, `example-host-privileged`):
+
+1. Move or rename them to `.xml.example` (this repo uses `docs/examples/`)
+2. Push to GitHub
+3. Open [ca.unraid.net/submit/new](https://ca.unraid.net/submit/new) → **Scan** again
+4. Wait for the CA feed to refresh on user servers (may take hours)
+
+Users who installed an example container can remove it from **Docker** — it was never a real app.
+
+---
+
 ## Common validate / scan failures
 
 | Issue | Fix |

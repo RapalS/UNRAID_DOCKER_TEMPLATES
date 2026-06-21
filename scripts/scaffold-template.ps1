@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-    Scaffold a new Unraid Docker template from examples/scaffold-starter.xml.
+    Scaffold a new Unraid Docker template from docs/examples/scaffold-starter.xml.example.
 
 .PARAMETER Name
     App slug (lowercase, hyphenated), e.g. my-cool-app
@@ -42,7 +42,7 @@ if ($Name -notmatch '^[a-z0-9]+(-[a-z0-9]+)*$') {
 }
 
 $RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$TemplateSrc = Join-Path $RepoRoot "examples\scaffold-starter.xml"
+$TemplateSrc = Join-Path $RepoRoot "docs\examples\scaffold-starter.xml.example"
 $TemplateDst = Join-Path $RepoRoot "templates\$Name.xml"
 $DocDir = Join-Path $RepoRoot "docs\apps"
 $DocDst = Join-Path $DocDir "$Name.md"
