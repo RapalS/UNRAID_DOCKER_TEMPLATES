@@ -12,6 +12,8 @@ Three templates — pick **one** based on your hardware:
 
 Ports: **7474** (HTTP/UI), **7687** (Bolt), optional **6334** (Qdrant gRPC).
 
+**Connect from Hermes / Python / Node.js:** [Connection guide](../guides/nornicdb-connection.md)
+
 **Icon:** Official upstream PNG ([raw GitHub](https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png)). Unraid requires PNG — not SVG/WebP.
 
 ---
@@ -163,6 +165,7 @@ Back up `/mnt/user/appdata/nornicdb/data` while the container is stopped.
 
 ## Links
 
+- [Connection guide (Hermes / Python / Node.js)](../guides/nornicdb-connection.md)
 - [Upstream README](https://github.com/orneryd/NornicDB)
 - [Docker image matrix](https://github.com/orneryd/NornicDB/blob/main/docs/getting-started/image-quick-reference.md)
 - [Heimdall AI assistant guide](https://github.com/orneryd/NornicDB/blob/main/docs/user-guides/heimdall-ai-assistant.md)

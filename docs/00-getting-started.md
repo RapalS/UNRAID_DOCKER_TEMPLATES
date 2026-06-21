@@ -36,9 +36,10 @@ When you pick a template in **Docker → Add Container**, Unraid pre-fills the f
 ```
 templates/              → One XML per app (flat folder; scales to hundreds)
 docs/TEMPLATE_INDEX.md  → Auto-generated catalog of all templates
-docs/apps/              → Optional per-app setup guides
+docs/apps/              → Optional per-app Unraid setup guides
+docs/guides/            → End-user guides (connect clients, Hermes, etc.)
 examples/               → Learning/reference XML (not primary install path)
-docs/                   → Step-by-step guides (start here if new)
+docs/                   → Template authoring guides (start here if new)
 scripts/                → Validation, scaffolding, index generation
 ca_profile.xml          → CA repository profile — one file for the whole repo
 ```

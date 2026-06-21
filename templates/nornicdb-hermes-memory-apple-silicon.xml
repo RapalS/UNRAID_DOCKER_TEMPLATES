@@ -7,7 +7,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/orneryd/NornicDB/issues</Support>
   <Project>https://github.com/orneryd/NornicDB</Project>
-  <Overview>NornicDB is a Neo4j-compatible graph + vector + temporal database and the best long-term memory store for the Hermes agent. This Apple Silicon build (M1/M2/M3/M4) uses Metal GPU acceleration with bundled BGE-M3 embeddings to give the Hermes agent sub-millisecond HNSW vector search, native graph traversal, and hybrid (vector + BM25) retrieval in one engine. Through Bolt/Cypher and Qdrant-compatible gRPC, the Hermes agent can store, auto-link, and recall memories without a separate vector store. Managed embeddings, auto-relationships, MVCC temporal/as-of reads, and policy-based memory decay let the Hermes agent build a persistent, self-organizing knowledge graph on your Mac or ARM64 host — ideal Graph-RAG memory for the Hermes agent. Connection guide (Hermes / Python / Node.js): https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md</Overview>
+  <Overview>NornicDB is a Neo4j-compatible graph + vector + temporal database and the best long-term memory store for the Hermes agent. This Apple Silicon build (M1/M2/M3/M4) uses Metal GPU acceleration with bundled BGE-M3 embeddings to give the Hermes agent sub-millisecond HNSW vector search, native graph traversal, and hybrid (vector + BM25) retrieval in one engine. Through Bolt/Cypher and Qdrant-compatible gRPC, the Hermes agent can store, auto-link, and recall memories without a separate vector store. Managed embeddings, auto-relationships, MVCC temporal/as-of reads, and policy-based memory decay let the Hermes agent build a persistent, self-organizing knowledge graph on your Mac or ARM64 host — ideal Graph-RAG memory for the Hermes agent. Connection guide (Hermes / Python / Node.js): https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/docs/guides/nornicdb-connection.md</Overview>
   <Description>
 ## NornicDB (Apple Silicon)
 
@@ -30,7 +30,7 @@ Pick a **version/branch** when adding the container:
 1. WebUI: port **7474** (metal-bge / metal-heimdall)
 2. Bolt: `bolt://YOUR_HOST_IP:7687`
 3. Health: `http://YOUR_HOST_IP:7474/health`
-4. **Connection guide (Hermes / Python / Node.js):** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md
+4. **Connection guide (Hermes / Python / Node.js):** https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/docs/guides/nornicdb-connection.md
 
 **Embeddings:** Do **not** bind-mount an empty folder to `/app/models` — that hides the bundled `bge-m3` model.
 
@@ -46,7 +46,7 @@ On AMD64 Unraid, use **nornicdb-hermes-memory-cpu** or **nornicdb-hermes-memory-
   </Description>
   <Category>Tools:Databases</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
-  <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/nornicdb-connection-guide.md</ReadMe>
+  <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/docs/guides/nornicdb-connection.md</ReadMe>
   <Requires>Apple Silicon (ARM64). Docker Hub pull. Recommend 4 GB+ RAM.</Requires>
   <TemplateURL>https://raw.githubusercontent.com/RapalS/UNRAID_DOCKER_TEMPLATES/main/templates/nornicdb-hermes-memory-apple-silicon.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/orneryd/NornicDB/main/macos/Assets/NornicDB.iconset/icon_1024x1024.png</Icon>

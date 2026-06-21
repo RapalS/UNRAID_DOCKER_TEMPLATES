@@ -88,6 +88,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full checklist.
 | [CA submission](docs/07-community-apps-submission.md) | Optional official catalog listing |
 | [Troubleshooting](docs/08-troubleshooting.md) | DNS, permissions, ports |
 | [App checklist](docs/app-template-checklist.md) | PR checklist per template |
+| [User guides](docs/guides/) | Connect clients to templated apps (Hermes, drivers, etc.) |
 
 ---
 
@@ -96,7 +97,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full checklist.
 ```
 templates/              One XML per app (flat folder — scales to hundreds)
 docs/TEMPLATE_INDEX.md    Auto-generated catalog (run generate_template_index.py)
-docs/apps/                Optional per-app setup guides
+docs/apps/                Optional per-app Unraid setup guides
+docs/guides/              End-user connection and usage guides
 examples/                 Reference XML for learning
 scripts/                  validate, scaffold, generate index
 ca_profile.xml            CA repository profile (one file for the whole repo)

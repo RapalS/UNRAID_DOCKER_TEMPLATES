@@ -4,13 +4,15 @@ Optional extended documentation when a template needs more explanation than fits
 
 **Full template list (all apps):** [TEMPLATE_INDEX.md](../TEMPLATE_INDEX.md) — auto-generated from `templates/*.xml`.
 
+**Connection / client guides:** [docs/guides/](../guides/) — Hermes, Python, Node.js, and driver setup.
+
 ---
 
 ## Documented apps
 
 | App | Templates | Guide |
 |-----|-----------|-------|
-| NornicDB | `nornicdb-hermes-memory-cpu`, `nornicdb-hermes-memory-gpu`, `nornicdb-hermes-memory-apple-silicon` | [nornicdb.md](nornicdb.md) |
+| NornicDB | `nornicdb-hermes-memory-cpu`, `nornicdb-hermes-memory-gpu`, `nornicdb-hermes-memory-apple-silicon` | [nornicdb.md](nornicdb.md) · [Connection guide](../guides/nornicdb-connection.md) |
 
 Add a row here when you create a new guide under `docs/apps/`.
 
