@@ -11,9 +11,9 @@ https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES
 
 | Template | Image | Category | Ports | Setup guide |
 |----------|-------|----------|-------|-------------|
-| [nornicdb-hermes-memory-apple-silicon](../templates/nornicdb-hermes-memory-apple-silicon.xml) | `timothyswt/nornicdb-arm64-metal-bge` | Tools:Databases | 7474, 7687, 6334 | [Guide](docs/apps/nornicdb.md) |
-| [nornicdb-hermes-memory-cpu](../templates/nornicdb-hermes-memory-cpu.xml) | `timothyswt/nornicdb-cpu-bge` | Tools:Databases | 7474, 7687, 6334 | [Guide](docs/apps/nornicdb.md) |
-| [nornicdb-hermes-memory-gpu](../templates/nornicdb-hermes-memory-gpu.xml) | `timothyswt/nornicdb-amd64-cuda-bge` | Tools:Databases | 7474, 7687, 6334 | [Guide](docs/apps/nornicdb.md) |
+| [nornicdb-hermes-memory-apple-silicon](../templates/nornicdb-hermes-memory-apple-silicon.xml) | `timothyswt/nornicdb-arm64-metal-bge` | Tools:Utilities Network:Management | 7474, 7687, 6334 | [Guide](docs/apps/nornicdb.md) |
+| [nornicdb-hermes-memory-cpu](../templates/nornicdb-hermes-memory-cpu.xml) | `timothyswt/nornicdb-cpu-bge` | Tools:Utilities Network:Management | 7474, 7687, 6334 | [Guide](docs/apps/nornicdb.md) |
+| [nornicdb-hermes-memory-gpu](../templates/nornicdb-hermes-memory-gpu.xml) | `timothyswt/nornicdb-amd64-cuda-bge` | Tools:Utilities Network:Management | 7474, 7687, 6334 | [Guide](docs/apps/nornicdb.md) |
 
 ## Raw install URLs
 

@@ -44,7 +44,7 @@ Open admin UI → helmet icon (Bifrost chat). Guide: https://github.com/orneryd/
 
 For CPU-only AMD64 hosts, use **nornicdb-hermes-memory-cpu**. For Apple Silicon, use **nornicdb-hermes-memory-apple-silicon**.
   </Description>
-  <Category>Tools:Databases</Category>
+  <Category>Tools:Utilities Network:Management</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
   <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/docs/guides/nornicdb-connection.md</ReadMe>
   <Requires>Docker Hub pull. CUDA variants need NVIDIA Driver plugin. Recommend 4 GB+ RAM and GPU.</Requires>

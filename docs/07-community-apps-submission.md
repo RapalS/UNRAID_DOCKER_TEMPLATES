@@ -105,7 +105,7 @@ Each file in `templates/` must be valid `<Container version="2">` XML including:
 | `<Description>` | Longer install guide (markdown) — strongly recommended for scan/review |
 | `<Support>` | Forum thread or GitHub issues |
 | `<Project>` | Upstream project URL |
-| `<Category>` | CA category (use Application Categorizer when unsure) |
+| `<Category>` | CA category (use **Application Categorizer** — e.g. `Tools:Utilities Network:Management` for databases; `Tools:Databases` is invalid) |
 | `<WebUI>` | `http://[IP]:[PORT:n]` when app has a web UI |
 | `<TemplateURL>` | **Raw** GitHub URL: `https://raw.githubusercontent.com/USER/REPO/branch/templates/app.xml` |
 | `<Icon>` | HTTPS direct link to **PNG** (128×128). **Do not use SVG or WebP** — Unraid shows a question mark or blank icon ([R3755](https://forums.unraid.net/bug-reports/stable-releases/custom-docker-icons-by-path-w-svg-or-webp-icons-unexpected-behavior-r3755/)) |
@@ -195,7 +195,7 @@ Users who installed an example container can remove it from **Docker** — it wa
 | Invalid `TemplateURL` | Must be `https://raw.githubusercontent.com/...` |
 | Missing `<Overview>` / `<Description>` | Add readable text for moderators |
 | Starter / placeholder icon | Point `<Icon>` to a real HTTPS PNG (the app's upstream raw icon) |
-| Legacy `<Networking>` / `<Data>` blocks | Use `<Config>` only — run [validate.py](../scripts/validate.py) |
+| Unknown category `Tools:Databases` | Use valid CA tags — e.g. `Tools:Utilities Network:Management` for database apps |
 | Unsafe `ExtraParams` | Document privileged/GPU flags; remove unless required |
 | External icon 404 or SVG in Docker UI | Use a stable raw HTTPS **PNG** URL (e.g. the app's upstream raw icon) |
 

@@ -18,6 +18,7 @@ PLACEHOLDER_REPOS = {
     "YOUR_IMAGE:tag",
     "example/placeholder:latest",
 }
+INVALID_CA_CATEGORY_TOKENS = ("Databases", "Database")
 
 
 def load_tree(path: Path) -> ET.Element:
@@ -129,6 +130,17 @@ def _validate_container(
         warnings.append("Privileged=true — document why in Description")
     if network == "host":
         warnings.append("Network=host — port Config entries are ignored")
+
+    if strict and path.parent.name == "templates":
+        category = text_of(root, "Category")
+        if category:
+            for token in INVALID_CA_CATEGORY_TOKENS:
+                if token in category:
+                    errors.append(
+                        f'Invalid <Category> "{category}" — CA has no "{token}" category; '
+                        "use Application Categorizer or e.g. Tools:Utilities Network:Management"
+                    )
+                    break
 
 
 def _profile_text(root: ET.Element) -> str:

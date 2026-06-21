@@ -44,7 +44,7 @@ Open admin UI → helmet icon (Bifrost chat). Guide: https://github.com/orneryd/
 
 On AMD64 Unraid, use **nornicdb-hermes-memory-cpu** or **nornicdb-hermes-memory-gpu** instead.
   </Description>
-  <Category>Tools:Databases</Category>
+  <Category>Tools:Utilities Network:Management</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
   <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/docs/guides/nornicdb-connection.md</ReadMe>
   <Requires>Apple Silicon (ARM64). Docker Hub pull. Recommend 4 GB+ RAM.</Requires>

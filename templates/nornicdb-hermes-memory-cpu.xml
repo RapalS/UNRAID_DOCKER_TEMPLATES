@@ -39,7 +39,7 @@ Full guide: https://github.com/orneryd/NornicDB/blob/main/docs/user-guides/heimd
 
 For NVIDIA or Vulkan GPU on AMD64, use **nornicdb-hermes-memory-gpu** instead. For Apple Silicon, use **nornicdb-hermes-memory-apple-silicon**.
   </Description>
-  <Category>Tools:Databases</Category>
+  <Category>Tools:Utilities Network:Management</Category>
   <WebUI>http://[IP]:[PORT:7474]</WebUI>
   <ReadMe>https://github.com/RapalS/UNRAID_DOCKER_TEMPLATES/blob/main/docs/guides/nornicdb-connection.md</ReadMe>
   <Requires>Docker Hub pull. Recommend 2 GB+ RAM. No GPU.</Requires>
